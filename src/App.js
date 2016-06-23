@@ -44,7 +44,6 @@ class App extends Component {
     };
 
     let mainScreenStyle={
-      paddingTop: '64px',
       minHeight: '400px', 
       paddingLeft: '256px',
       marginBottom: '40px'
@@ -60,8 +59,8 @@ class App extends Component {
     return (
       <div>
 	      <Grid fluid={true}>
-		       <Row className="show-grid">
-			       <Col xs={12} md={8}>
+	
+			       <Col >
 				       <code>
 					       <MuiThemeProvider muiTheme={getMuiTheme()}>
 						        <AppBar zDepth={0} style={style} title="CMS" 
@@ -74,16 +73,16 @@ class App extends Component {
 					         </MuiThemeProvider>
 				         </code>
 			         </Col>
-		         </Row>
-	         <Row className="show-grid">
+		
+
 	          	<Col >
 				  <code>
 	        				<AppLeftNav />
 	        		  </code>
 			    </Col>
-	        </Row>
-	         <Row className="show-grid">
-	         	<Col >
+	  
+
+	         	<Col  >
 	         		<code>
 				        <div className="mainScreen" style={mainScreenStyle}>
 				          <div style={{margin: '48px 72px'}}>
@@ -92,8 +91,7 @@ class App extends Component {
 				        </div>
 		         	</code>
 			    </Col>
-	         </Row>
-	        <Row className="show-grid">
+	        
 	        		<Col >
 	         		<code>
 				        <div className="footer" style={footerStyle} >
@@ -101,7 +99,7 @@ class App extends Component {
 				        </div>
 				    </code>
 			    </Col>
-	         </Row>
+	 
 	         </Grid>
       </div>
     );

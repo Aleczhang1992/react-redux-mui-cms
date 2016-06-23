@@ -11,6 +11,7 @@ import TextField from 'material-ui/TextField';
 import CircularProgress from 'material-ui/CircularProgress';
 import Snackbar from 'material-ui/Snackbar';
 
+import ReactPaginate from 'react-paginate';
 import { PageHeader,small } from 'react-bootstrap';
 
 import {
@@ -189,10 +190,18 @@ export class BrowseNewsView extends Component {
               onClick={this.handleConfirmDialogOpen}>delete</IconButton>
         </ToolbarGroup>
         <ToolbarGroup  float="right" firstChild={true}>
-          <RaisedButton label="上一页" primary={true} disabled={hasPrevious!=true} 
-            onClick={()=>{this.gotoPage(pageNo-1)}}/>
-          <RaisedButton label="下一页" primary={true} disabled={hasNext!=true}
-            onClick={()=>{this.gotoPage(pageNo+1)}}/>
+        <ReactPaginate previousLabel={"上一页"}
+                       nextLabel={"下一页"}
+                       breakLabel={<a href="">...</a>}
+                       pageNum={pageNo}
+                       marginPagesDisplayed={2}
+                       pageRangeDisplayed={5}
+                       clickCallback={()=>{this.gotoPage(pageNo)}}
+                       containerClassName={"pagination"}
+                       subContainerClassName={"pages pagination"}
+					   activeClassName={"active"} 
+				
+					   />
         </ToolbarGroup>
       </Toolbar>
     );
