@@ -12,7 +12,6 @@ import CircularProgress from 'material-ui/CircularProgress';
 
 import AppLeftNav from './AppLeftNav';
 
-import { Grid,Row,Col } from 'react-bootstrap';
 
 const muiTheme = getMuiTheme();
 
@@ -46,7 +45,8 @@ class App extends Component {
     let mainScreenStyle={
       minHeight: '400px', 
       paddingLeft: '256px',
-      marginBottom: '40px'
+      marginBottom: '40px',
+       paddingTop:'84px'
     };
 
     let footerStyle={
@@ -58,49 +58,29 @@ class App extends Component {
     };
     return (
       <div>
-	      <Grid fluid={true}>
+	      
+	       <MuiThemeProvider muiTheme={getMuiTheme()}>
+		        <AppBar zDepth={0} style={style} title="CMS" 
+		          showMenuIconButton={false} 
+		          iconElementRight={<FlatButton
+		            label="退出"
+		            icon={<Avatar src="/images/uxceo-128.jpg" />}
+		          />}
+		        />
+	         </MuiThemeProvider>
+
+			<AppLeftNav />
 	
-			       <Col >
-				       <code>
-					       <MuiThemeProvider muiTheme={getMuiTheme()}>
-						        <AppBar zDepth={0} style={style} title="CMS" 
-						          showMenuIconButton={false} 
-						          iconElementRight={<FlatButton
-						            label="退出"
-						            icon={<Avatar src="/images/uxceo-128.jpg" />}
-						          />}
-						        />
-					         </MuiThemeProvider>
-				         </code>
-			         </Col>
-		
-
-	          	<Col >
-				  <code>
-	        				<AppLeftNav />
-	        		  </code>
-			    </Col>
-	  
-
-	         	<Col  >
-	         		<code>
-				        <div className="mainScreen" style={mainScreenStyle}>
-				          <div style={{margin: '48px 72px'}}>
-				            {React.cloneElement(this.props.children, {news: news })}
-				          </div>
-				        </div>
-		         	</code>
-			    </Col>
-	        
-	        		<Col >
-	         		<code>
-				        <div className="footer" style={footerStyle} >
-				          <p>Copyright ©1999-2016 My Company. All rights reserved. </p>
-				        </div>
-				    </code>
-			    </Col>
-	 
-	         </Grid>
+        <div className="mainScreen" style={mainScreenStyle}>
+          <div style={{margin: '48px 72px'}}>
+	            {React.cloneElement(this.props.children, {news: news })}
+	          </div>
+	        </div>
+ 
+	        <div className="footer" style={footerStyle} >
+          <p>Copyright ©1999-2016 My Company. All rights reserved. </p>
+        </div>
+	
       </div>
     );
   }

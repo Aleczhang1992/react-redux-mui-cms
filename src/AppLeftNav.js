@@ -3,12 +3,12 @@ import ReactDOM from 'react-dom';
 
 import Drawer from 'material-ui/Drawer';
 
-import {List, ListItem, MakeSelectable} from 'material-ui/List';
+import {List, ListItem, makeSelectable} from 'material-ui/List';
 
 
 import Divider from 'material-ui/Divider';
 
-let SelectableList = MakeSelectable(List);
+let SelectableList = makeSelectable(List);
 
 let styles={
 	logo:{
@@ -34,7 +34,7 @@ export default class AppLeftNav extends Component {
 		return (
 			<Drawer>
 				<div style={styles.logo} />
-				<SelectableList valueLink={{value: location.pathname, requestChange: this.onRequestChangeList}}>
+				<SelectableList value={location.pathname} onChange= {this.onRequestChangeList}>
 					<ListItem key={100} primaryText="新闻管理" primaryTogglesNestedList={true} nestedItems={[
 						<ListItem key={1} primaryText="新闻" value="/news/browse"/>,
 						<ListItem key={2} primaryText="栏目" value="/channel/browse"/>,

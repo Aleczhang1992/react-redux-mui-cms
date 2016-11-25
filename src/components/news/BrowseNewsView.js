@@ -12,7 +12,7 @@ import CircularProgress from 'material-ui/CircularProgress';
 import Snackbar from 'material-ui/Snackbar';
 
 import ReactPaginate from 'react-paginate';
-import { PageHeader,small } from 'react-bootstrap';
+
 
 import {
   browseNews,
@@ -118,7 +118,7 @@ export class BrowseNewsView extends Component {
 
     return (
       <div>
-      <PageHeader><small>新闻列表</small></PageHeader>
+      <h3>新闻列表</h3>
         {alertBar}
         {this.renderDeleteNewsItemConfirmDialog()}
         {this.renderLoadingDialog()}
@@ -182,14 +182,14 @@ export class BrowseNewsView extends Component {
     let {hasNext,hasPrevious,pageNo}=news.results;
     return (
       <Toolbar>
-        <ToolbarGroup float="left">
+        <ToolbarGroup style={{float:"left"}} >
           <IconButton iconClassName="material-icons" tooltip="添加新闻" 
             onClick={this.handleDialogOpen}>note_add</IconButton>
           <IconButton iconClassName="material-icons" 
             tooltip="删除选中的新闻" disabled={news.selectedRowsIndex.length==0} 
               onClick={this.handleConfirmDialogOpen}>delete</IconButton>
         </ToolbarGroup>
-        <ToolbarGroup  float="right" firstChild={true}>
+        <ToolbarGroup  style={{float:"right"}} firstChild={true}>
         <ReactPaginate previousLabel={"上一页"}
                        nextLabel={"下一页"}
                        breakLabel={<a href="">...</a>}
